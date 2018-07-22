@@ -2,11 +2,13 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('attributes', (table) => {
       table.increments('id');
-      table.string('Product_Name').notNull();
-      //todo create database
+      table.int('Product_Id').notNull();
+      table.string('Attributes');
+      table.string('AttributesContent');
   })
 };
 
 exports.down = function(knex, Promise) {
-  
+    return knex.schema.dropTable('attributes');
+
 };
