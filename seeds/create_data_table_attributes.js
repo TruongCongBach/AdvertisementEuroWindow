@@ -1,106 +1,375 @@
-
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
     // Deletes ALL existing entries
-    return knex('attributes').del()
+    return knex('Attributes').del()
         .then(function () {
             // Inserts seed entries
-            return knex('attributes').insert([
-                {id: 1, Product_Id: 1, Attributes: 'Giới thiệu cửa uPVC', AttributesContent_Id: 1},
-                {id: 2, Product_Id: 1, Attributes: 'Chi tiết và tính năng các bộ phận cấu thành', AttributesContent_Id: 2},
-                {id: 3, Product_Id: 1, Attributes: 'Tính ưu việt', AttributesContent_Id: 3},
-                {id: 4, Product_Id: 1, Attributes: 'Cửa sổ mở quay lật vào trong', AttributesContent_Id: 4},
-                {id: 5, Product_Id: 1, Attributes: 'Cửa sổ mở quay vào trong', AttributesContent_Id: 5},
-                {id: 6, Product_Id: 1, Attributes: 'Cửa sổ mở quay ra ngoài', AttributesContent_Id: 6},
-                {id: 7, Product_Id: 1, Attributes: 'Cửa sổ mở trượt', AttributesContent_Id: 7},
-                {id: 8, Product_Id: 1, Attributes: 'Cửa sổ mở hất ra ngoài', AttributesContent_Id: 8},
-                {id: 9, Product_Id: 1, Attributes: 'Cửa sổ mở quay, lật và mở song song', AttributesContent_Id: 9},
-                {id: 10, Product_Id: 1, Attributes: 'Cửa đi ban công và cửa sổ mở quay lật vào trong giấu khung', AttributesContent_Id: 10},
-                {id: 11, Product_Id: 1, Attributes: 'Cửa đi hai cánh mở quay', AttributesContent_Id: 11},
-                {id: 12, Product_Id: 1, Attributes: 'Cửa đi mở trượt', AttributesContent_Id: 12},
-                {id: 13, Product_Id: 1, Attributes: 'Cửa đi Xếp trượt', AttributesContent_Id: 13},
-                {id: 14, Product_Id: 1, Attributes: 'Cửa đi một cánh mở quay, cửa thông phòng', AttributesContent_Id: 14},
-                {id: 15, Product_Id: 1, Attributes: 'Cửa ra ban công, ra loggia', AttributesContent_Id: 15},
-                {id: 16, Product_Id: 1, Attributes: 'Vách ngăn', AttributesContent_Id: 16},
+            return knex('Attributes').insert([
+                {
+                    id                  : 1,
+                    product_id          : 1,
+                    attributes          : 'Giới thiệu cửa uPVC',
+                    attributesContent_id: 1
+                },
+                {
+                    id                  : 2,
+                    product_id          : 1,
+                    attributes          : 'Chi tiết và tính năng các bộ phận cấu thành',
+                    attributesContent_id: 2
+                },
+                {
+                    id                  : 3,
+                    product_id          : 1,
+                    attributes          : 'Tính ưu việt',
+                    attributesContent_id: 3
+                },
+                {
+                    id                  : 4,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở quay lật vào trong',
+                    attributesContent_id: 4
+                },
+                {
+                    id                  : 5,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở quay vào trong',
+                    attributesContent_id: 5
+                },
+                {
+                    id                  : 6,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở quay ra ngoài',
+                    attributesContent_id: 6
+                },
+                {
+                    id                  : 7,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở trượt',
+                    attributesContent_id: 7
+                },
+                {
+                    id                  : 8,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở hất ra ngoài',
+                    attributesContent_id: 8
+                },
+                {
+                    id                  : 9,
+                    product_id          : 1,
+                    attributes          : 'Cửa sổ mở quay, lật và mở song song',
+                    attributesContent_id: 9
+                },
+                {
+                    id                  : 10,
+                    product_id          : 1,
+                    attributes          : 'Cửa đi ban công và cửa sổ mở quay lật vào trong giấu khung',
+                    attributesContent_id: 10
+                },
+                {
+                    id                  : 11,
+                    product_id          : 1,
+                    attributes          : 'Cửa đi hai cánh mở quay',
+                    attributesContent_id: 11
+                },
+                {
+                    id                  : 12,
+                    product_id          : 1,
+                    attributes          : 'Cửa đi mở trượt',
+                    attributesContent_id: 12
+                },
+                {
+                    id                  : 13,
+                    product_id          : 1,
+                    attributes          : 'Cửa đi Xếp trượt',
+                    attributesContent_id: 13
+                },
+                {
+                    id                  : 14,
+                    product_id          : 1,
+                    attributes          : 'Cửa đi một cánh mở quay, cửa thông phòng',
+                    attributesContent_id: 14
+                },
+                {
+                    id                  : 15,
+                    product_id          : 1,
+                    attributes          : 'Cửa ra ban công, ra loggia',
+                    attributesContent_id: 15
+                },
+                {
+                    id                  : 16,
+                    product_id          : 1,
+                    attributes          : 'Vách ngăn',
+                    attributesContent_id: 16
+                },
 
-                {id: 17, Product_id: 2, Attributes: 'Giới thiệu cửa nhôm Eurowindow K', AttributesContent_Id: 17},
-                {id: 18, Product_id: 2, Attributes: 'Tính ưu việt', AttributesContent_Id: 18},
-                {id: 19, Product_id: 2, Attributes: 'Hệ vách nhom kính lớn', AttributesContent_Id: 19},
-                {id: 20, Product_id: 2, Attributes: 'Mái che', AttributesContent_Id: 20},
-                {id: 21, Product_id: 2, Attributes: 'Cửa sổ mở quay vào trong', AttributesContent_Id: 21},
-                {id: 22, Product_id: 2, Attributes: 'Cửa đi mở quay', AttributesContent_Id: 22},
-                {id: 23, Product_id: 2, Attributes: 'Cửa đi mở trượt', AttributesContent_Id: 23},
-                {id: 24, Product_id: 2, Attributes: 'Cửa chống đạn', AttributesContent_Id: 24},
-                {id: 25, Product_id: 2, Attributes: 'Cửa sổ mở quay ra ngoài', AttributesContent_Id: 25},
-                {id: 26, Product_id: 2, Attributes: 'Cửa nhôm ốp gỗ', AttributesContent_Id: 26},
-                {id: 27, Product_id: 2, Attributes: 'Cửa nhôm và vách nhôm Technal', AttributesContent_Id: 27},
-                {id: 28, Product_id: 2, Attributes: 'Cửa nhôm Eurowindow', AttributesContent_Id: 28},
-                
-                {id: 29, Product_id: 3, Attributes: 'Giới thiệu cửa gỗ Eurowindow', AttributesContent_Id: 29},
-                {id: 30, Product_id: 3, Attributes: 'Tính ưu việt', AttributesContent_Id: 30},
-                {id: 31, Product_id: 3, Attributes: 'Mẫu gỗ, khuôn cửa và hệ phụ kiện', AttributesContent_Id: 31},
-                {id: 32, Product_id: 3, Attributes: 'Cửa gỗ tự nhiên', AttributesContent_Id: 32},
-                {id: 33, Product_id: 3, Attributes: 'Cửa gỗ tự nhiên ghép thanh', AttributesContent_Id: 33},
-                {id: 34, Product_id: 3, Attributes: 'Cửa gỗ MDF và HDF', AttributesContent_Id: 34},
-                {id: 35, Product_id: 3, Attributes: 'Cửa gỗ hỗn hợp', AttributesContent_Id: 35},
-                {id: 36, Product_id: 3, Attributes: 'Cửa nhôm gỗ', AttributesContent_Id: 36},
-                {id: 37, Product_id: 3, Attributes: 'Sàn gỗ', AttributesContent_Id: 37},
-                {id: 38, Product_id: 3, Attributes: 'Đồ gỗ nội thất', AttributesContent_Id: 38},
+                {
+                    id                  : 17,
+                    product_id          : 2,
+                    attributes          : 'Giới thiệu cửa nhôm Eurowindow K',
+                    attributesContent_id: 17
+                },
+                {
+                    id                  : 18,
+                    product_id          : 2,
+                    attributes          : 'Tính ưu việt',
+                    attributesContent_id: 18
+                },
+                {
+                    id                  : 19,
+                    product_id          : 2,
+                    attributes          : 'Hệ vách nhom kính lớn',
+                    attributesContent_id: 19
+                },
+                {
+                    id                  : 20,
+                    product_id          : 2,
+                    attributes          : 'Mái che',
+                    attributesContent_id: 20
+                },
+                {
+                    id                  : 21,
+                    product_id          : 2,
+                    attributes          : 'Cửa sổ mở quay vào trong',
+                    attributesContent_id: 21
+                },
+                {
+                    id                  : 22,
+                    product_id          : 2,
+                    attributes          : 'Cửa đi mở quay',
+                    attributesContent_id: 22
+                },
+                {
+                    id                  : 23,
+                    product_id          : 2,
+                    attributes          : 'Cửa đi mở trượt',
+                    attributesContent_id: 23
+                },
+                {
+                    id                  : 24,
+                    product_id          : 2,
+                    attributes          : 'Cửa chống đạn',
+                    attributesContent_id: 24
+                },
+                {
+                    id                  : 25,
+                    product_id          : 2,
+                    attributes          : 'Cửa sổ mở quay ra ngoài',
+                    attributesContent_id: 25
+                },
+                {
+                    id                  : 26,
+                    product_id          : 2,
+                    attributes          : 'Cửa nhôm ốp gỗ',
+                    attributesContent_id: 26
+                },
+                {
+                    id                  : 27,
+                    product_id          : 2,
+                    attributes          : 'Cửa nhôm và vách nhôm Technal',
+                    attributesContent_id: 27
+                },
+                {
+                    id                  : 28,
+                    product_id          : 2,
+                    attributes          : 'Cửa nhôm Eurowindow',
+                    attributesContent_id: 28
+                },
 
-                {id: 39, Product_Id: 4, Attributes: 'Giới thiệu cửa chống cháy', AttributesContent_Id: 39},
-                {id: 40, Product_Id: 4, Attributes: 'Chi tiết và tính năng bộ phận cấu thành', AttributesContent_Id: 40},
-                {id: 41, Product_Id: 4, Attributes: 'Tính ưu viêt', AttributesContent_Id: 41},
+                {
+                    id                  : 29,
+                    product_id          : 3,
+                    attributes          : 'Giới thiệu cửa gỗ Eurowindow',
+                    attributesContent_id: 29
+                },
+                {
+                    id                  : 30,
+                    product_id          : 3,
+                    attributes          : 'Tính ưu việt',
+                    attributesContent_id: 30
+                },
+                {
+                    id                  : 31,
+                    product_id          : 3,
+                    attributes          : 'Mẫu gỗ, khuôn cửa và hệ phụ kiện',
+                    attributesContent_id: 31
+                },
+                {
+                    id                  : 32,
+                    product_id          : 3,
+                    attributes          : 'Cửa gỗ tự nhiên',
+                    attributesContent_id: 32
+                },
+                {
+                    id                  : 33,
+                    product_id          : 3,
+                    attributes          : 'Cửa gỗ tự nhiên ghép thanh',
+                    attributesContent_id: 33
+                },
+                {
+                    id                  : 34,
+                    product_id          : 3,
+                    attributes          : 'Cửa gỗ MDF và HDF',
+                    attributesContent_id: 34
+                },
+                {
+                    id                  : 35,
+                    product_id          : 3,
+                    attributes          : 'Cửa gỗ hỗn hợp',
+                    attributesContent_id: 35
+                },
+                {
+                    id                  : 36,
+                    product_id          : 3,
+                    attributes          : 'Cửa nhôm gỗ',
+                    attributesContent_id: 36
+                },
+                {
+                    id                  : 37,
+                    product_id          : 3,
+                    attributes          : 'Sàn gỗ',
+                    attributesContent_id: 37
+                },
+                {
+                    id                  : 38,
+                    product_id          : 3,
+                    attributes          : 'Đồ gỗ nội thất',
+                    attributesContent_id: 38
+                },
 
-                {id: 42, Product_Id: 1, Attributes: 'Giới thiệu cửa cuốn và cửa tự động Eurowindow', AttributesContent_Id: 42},
-                {id: 43, Product_id: 5, Attributes: 'Ưu điểm của cửa cuốn Eurowindow', AttributesContent_Id: 43},
-                {id: 44, Product_id: 5, Attributes: 'Cửa cuốn Eurowindow - BUNKA', AttributesContent_Id: 44},
-                {id: 45, Product_id: 5, Attributes: 'Cấu tạo màn cửa', AttributesContent_Id: 45},
-                {id: 46, Product_id: 5, Attributes: 'Cửa trượt tự động', AttributesContent_Id: 46},
-                {id: 47, Product_id: 5, Attributes: 'Cửa trượt tự động 2 cánh', AttributesContent_Id: 47},
-                {id: 78, Product_id: 5, Attributes: 'Cửa trượt tự động xoay tròn 3 cánh hoặc 4 cánh', AttributesContent_Id: 48},
-                
-                {id: 49, Product_id: 6, Attributes: 'Giới thiệu sản phẩm kính Eurowindow', AttributesContent_Id: 49},
-                {id: 50, Product_id: 6, Attributes: 'Kinh an toàn', AttributesContent_Id: 50},
-                {id: 51, Product_id: 6, Attributes: 'Sản phẩm kính cường lực và bán cường lực', AttributesContent_Id: 51},
-                {id: 52, Product_id: 6, Attributes: 'Hộp kính & hộp kính khổ lớn', AttributesContent_Id: 52},
-                {id: 53, Product_id: 6, Attributes: 'Kinh hoa văn', AttributesContent_Id: 53},
-                {id: 54, Product_id: 6, Attributes: 'Kính cách nhiệt an toàn ACT', AttributesContent_Id: 54},
-                
-                // {id: 55, Product_Id: 1, Attributes: '', AttributesContent_Id: 55},
-                // {id: 56, Product_Id: 1, Attributes: '', AttributesContent_Id: 56},
-                // {id: 57, Product_Id: 1, Attributes: '', AttributesContent_Id: 57},
-                // {id: 58, Product_Id: 1, Attributes: '', AttributesContent_Id: 58},
-                // {id: 59, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 60, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 61, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 62, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 63, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 64, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 65, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 66, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 67, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 68, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 69, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 70, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 71, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 72, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 73, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 74, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 75, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 76, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 77, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 78, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 79, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 80, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 81, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 82, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 83, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 84, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 85, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 86, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 87, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 88, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 89, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
-                // {id: 90, Product_Id: 1, Attributes: '', AttributesContent_Id: 17},
+                {
+                    id                  : 39,
+                    product_id          : 4,
+                    attributes          : 'Giới thiệu cửa chống cháy',
+                    attributesContent_id: 39
+                },
+                {
+                    id                  : 40,
+                    product_id          : 4,
+                    attributes          : 'Chi tiết và tính năng bộ phận cấu thành',
+                    attributesContent_id: 40
+                },
+                {
+                    id                  : 41,
+                    product_id          : 4,
+                    attributes          : 'Tính ưu viêt',
+                    attributesContent_id: 41
+                },
+
+                {
+                    id                  : 42,
+                    product_id          : 1,
+                    attributes          : 'Giới thiệu cửa cuốn và cửa tự động Eurowindow',
+                    attributesContent_id: 42
+                },
+                {
+                    id                  : 43,
+                    product_id          : 5,
+                    attributes          : 'Ưu điểm của cửa cuốn Eurowindow',
+                    attributesContent_id: 43
+                },
+                {
+                    id                  : 44,
+                    product_id          : 5,
+                    attributes          : 'Cửa cuốn Eurowindow - BUNKA',
+                    attributesContent_id: 44
+                },
+                {
+                    id                  : 45,
+                    product_id          : 5,
+                    attributes          : 'Cấu tạo màn cửa',
+                    attributesContent_id: 45
+                },
+                {
+                    id                  : 46,
+                    product_id          : 5,
+                    attributes          : 'Cửa trượt tự động',
+                    attributesContent_id: 46
+                },
+                {
+                    id                  : 47,
+                    product_id          : 5,
+                    attributes          : 'Cửa trượt tự động 2 cánh',
+                    attributesContent_id: 47
+                },
+                {
+                    id                  : 78,
+                    product_id          : 5,
+                    attributes          : 'Cửa trượt tự động xoay tròn 3 cánh hoặc 4 cánh',
+                    attributesContent_id: 48
+                },
+
+                {
+                    id                  : 49,
+                    product_id          : 6,
+                    attributes          : 'Giới thiệu sản phẩm kính Eurowindow',
+                    attributesContent_id: 49
+                },
+                {
+                    id                  : 50,
+                    product_id          : 6,
+                    attributes          : 'Kinh an toàn',
+                    attributesContent_id: 50
+                },
+                {
+                    id                  : 51,
+                    product_id          : 6,
+                    attributes          : 'Sản phẩm kính cường lực và bán cường lực',
+                    attributesContent_id: 51
+                },
+                {
+                    id                  : 52,
+                    product_id          : 6,
+                    attributes          : 'Hộp kính & hộp kính khổ lớn',
+                    attributesContent_id: 52
+                },
+                {
+                    id                  : 53,
+                    product_id          : 6,
+                    attributes          : 'Kinh hoa văn',
+                    attributesContent_id: 53
+                },
+                {
+                    id                  : 54,
+                    product_id          : 6,
+                    attributes          : 'Kính cách nhiệt an toàn ACT',
+                    attributesContent_id: 54
+                }
+
+                // {id: 55, product_id: 1, attributes: '', attributesContent_id: 55},
+                // {id: 56, product_id: 1, attributes: '', attributesContent_id: 56},
+                // {id: 57, product_id: 1, attributes: '', attributesContent_id: 57},
+                // {id: 58, product_id: 1, attributes: '', attributesContent_id: 58},
+                // {id: 59, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 60, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 61, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 62, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 63, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 64, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 65, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 66, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 67, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 68, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 69, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 70, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 71, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 72, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 73, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 74, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 75, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 76, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 77, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 78, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 79, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 80, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 81, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 82, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 83, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 84, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 85, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 86, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 87, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 88, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 89, product_id: 1, attributes: '', attributesContent_id: 17},
+                // {id: 90, product_id: 1, attributes: '', attributesContent_id: 17},
             ]);
         });
 };
